@@ -1,0 +1,274 @@
+//전역변수
+//$url: 'http://localhost:3000'; 절대주소에서는 반드시 public을 삭제
+$url: '../../../../public'; // 상대주소에서는 반드시 public을 포함
+
+/* 메인 */
+#main {
+    width: 100%;position: relative;z-index: 2;
+    #section1 {
+        width: 100%;height: 300px;background-color: #c9c;
+        .slide-container {
+            width:100%;height: 100%;overflow: hidden;
+            .slide-content {
+                width: 100%;height: 100%;
+                .slide-wrap {
+                    width: 100% * 7;
+                    height: 100%;   
+                    position: relative;
+                    display: flex;
+                    .slide {
+                        // position: absolute;
+                        // top: 0;
+                        // left: 0;
+                        left:  -100% * 1;
+                        width: 100%;
+                        height: 300px;
+                        background: url(#{$url}/images/img14.png) no-repeat 50% 50%;
+                        // 애니메이션 
+                        // &.next {
+                        //     animation: slide_ani 2s ease-in-out both;
+                        // }
+                        // @keyframes slide_ani {
+                        //     from {
+                        //         opacity: 1;
+                        //     }
+                        //     to {
+                        //         opacity: 0;
+                        //     }
+                        // }
+                        &.slide1 {
+                            /* background-image: url(../images/P20210602_121628173_A3534848-6C47-474E-AE37-95EDC8CD04EC.jfif); */
+                            background-position: center;
+                            background-size: cover;
+                            z-index: 3;
+                        }
+                        &.slide2 {
+                            /* background-image: url(../images/P20210622_124508556_D984F1CC-EF81-4430-8CE6-85C13CF6EBFC.png); */
+                            background-position: center;
+                            background-size: cover;
+                            z-index: 2;
+                            a {
+                                span {background-color: rgba(204, 85, 170, 0.9);}
+                            } 
+                        }
+                        &.slide3 {
+                            /* background-image: url(../images/P20210629_121410908_FAD95945-7BE0-4DA3-B7DC-07B0F147BC7C.png); */
+                            background-position: center;
+                            background-size: cover;
+                            z-index: 1;
+                            a {
+                                span {background-color: rgba(250, 120, 85, 0.9);}
+                            }
+                        }                        
+                        a {
+                            display: flex;
+                            width: 100%;
+                            height: 100%;
+                            align-items: center;
+                            span {
+                                width: 100%;
+                                height: 70px;
+                                background: rgba(85, 170, 204, 0.7);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 28px;
+                                color:#fff;
+                                user-select: none;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+    }
+    #section2 {
+        width: 100%;height: 200px;display: flex;padding: 10px 0;user-select: none;
+        .left   {
+            width: 33.333%;height: 100%;
+            .container {
+                width: 100%;height: 100%;position: relative;padding-top: 35px;
+                .title {
+                    width: 100%;
+                    height: 36px;
+                    display: flex;
+                    padding: 0 0 0 10px;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    z-index: 2;
+                    button {
+                        padding: 0 10px;border: 0;border-radius: 5px 5px 0 0;height: 36px;
+                        &.notice-btn {
+                            border: 1px solid #ccc;border-bottom: 1px solid transparent;background: #fff;cursor: default;
+                            &.on {
+                                border: 1px solid #ccc;background: #f3f3f3;cursor: pointer;
+                            }                        
+                        }
+                        &.gallery-btn {
+                            border: 1px solid #ccc;background: #f3f3f3;cursor: pointer;
+                            &.on {
+                                border: 1px solid #ccc;border-bottom: 1px solid rgba(204,204,204, 0);background: #fff;cursor: default;
+                            }
+                        }
+                    }
+                }
+                .content {
+                    width: 100%;
+                    height: 145px;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    position: relative;
+                    z-index: 1;
+                    > div {
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 10px;
+                        background: #fff;
+                        &.notice-box {
+                            padding-top: 8px;
+                            &.on {
+                                display: none;
+                            }
+                            ul {
+                                width:100%;
+                                li {
+                                    width: 100%;
+                                    line-height: 24.6px;
+                                    border-bottom: 1px dotted #eee;
+                                    padding-left: 13px;
+                                    position: relative;
+                                    display: flex;
+                                    justify-content: space-between; /* 공지내용 텍스트 왼쪽 / 날짜 오른쪽 */
+                                    &:last-child {
+                                        border-bottom: 0;                                    
+                                    }
+                                    &::before {
+                                        content: '';
+                                        width: 2px;
+                                        height: 2px;
+                                        background: #333;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 0;
+                                        margin-top: -1px;
+                                    }
+                                    a {
+                                        font-size: 14px;
+                                        width: 270px;
+                                        overflow: hidden;
+                                        display: block;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                        &:hover {
+                                            text-decoration: underline;color:#90f
+                                        }
+                                    }
+                                    span {color: #999;font-size: 13px;}
+                                }
+                            }
+                        }
+                        &.gallery-box {
+                            background:#fff;    
+                            display: none;
+                            &.on {
+                                display: block;                                
+                            } 
+                            ul {
+                                width:100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                li {
+                                    width:33.333%;
+                                    a {
+                                        margin:0 10px;display: block;overflow: hidden;
+                                        img {
+                                            width:100%;transition: all 0.3s;
+                                            &:hover {transform: scale(1.1);}
+                                        }
+                                    }
+                                }
+                            }                           
+                        }
+
+                    }
+                }
+            }
+        }
+        .center {
+            width: 33.333%;height: 100%;background: #fff;padding: 0 0 0 10px;
+            .container {
+                width: 100%;height: 100%;border: 0px solid #ccc;
+                .content {
+                    width: 100%;height: 100%;
+                    a {
+                        width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;
+                        background: url(#{$url}/images/img14.png) no-repeat 50% 50%;
+                        background-size: cover;
+                        a:hover {
+                            h3 {color: #fff;}  
+                        }  
+                        h3 {
+                            font-size: 24px;font-weight: 600;
+                            line-height: 50px;
+                            background: rgba(150, 230, 0, 0.6);
+                            color: #fff;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .right  {
+            width: 33.333%;height: 100%;background: #fff;padding: 0 0 0 10px;
+            .container {
+                width: 100%;height: 100%;border: 0px solid #ccc;
+                .content {
+                    width: 100%;height: 100%;
+                    ul {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-flow: column nowrap;  /* <= 세로정렬 / 가로정렬 => flex-flow: row nowrap;*/
+                        justify-content: space-between;
+                        li {
+                            width: 100%;
+                            a {
+                                display: flex;
+                                width:100%;
+                                height: 55px;
+                                align-items: center;
+                                justify-content: center;
+                                background: url() no-repeat 50% 50%;
+                                background-size: cover;
+                                font-size: 17px;
+                                font-weight: 600;                              
+                                span {
+                                    font-size: 12px;
+                                    color: #fff;
+                                    background-color: rgba(0,0,0, 0.2);
+                                    line-height: 1.4;
+                                    padding: 0 5px;
+                                    border-radius: 5px;                                    
+                                }
+                            }
+                            &:nth-child(1) a {
+                                background-image: url(#{$url}/images/img15.png);
+                            }
+                            &:nth-child(2) a {
+                                background-image: url(#{$url}/images/img16.png);
+                            }
+                            &:nth-child(3) a {
+                                background-image: url(#{$url}/images/img17.png);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
