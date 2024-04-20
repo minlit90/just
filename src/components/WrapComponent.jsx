@@ -4,7 +4,9 @@ import HeaderComponent from './wrap/HeaderComponent';
 import FooterComponent from './wrap/FooterComponent';
 import PopupComponent from './wrap/PopupComponent';
 import './scss/WrapComponent.scss';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 
 //상태관리에 있는 값을 가져옴
 import { useSelector } from 'react-redux';
@@ -37,7 +39,7 @@ export default function WrapComponent(){
 
     return (
         <div id="wrap">
-            <HashRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>
                     <Route path='/' element={<HeaderComponent />}>
                         {/* //로딩시 outlet 타켓에 나타남 */}
@@ -48,7 +50,7 @@ export default function WrapComponent(){
                 </Routes>                   
                 <FooterComponent />
                 { isPopup && <PopupComponent popupClose={popupClose} />}
-            </HashRouter>            
+            </BrowserRouter>            
         </div>
     );
 };
